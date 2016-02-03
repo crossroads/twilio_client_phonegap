@@ -90,7 +90,7 @@
         var args = [alertBody, ringSound];
         if(ringSound === "undefined") {
             args = [alertBody];
-        }    
+        }
         Cordova.exec(null, null, "TCPlugin", "showNotification", args);
     }
 
@@ -99,7 +99,7 @@
     }
 
     TwilioPlugin.Connection.prototype.setSpeaker = function(mode) {
-        // "on" or "off"        
+        // "on" or "off"
         Cordova.exec(null, null, "TCPlugin", "setSpeaker", [mode]);
     }
 
@@ -134,15 +134,15 @@
     TwilioPlugin.Connection.prototype.status = function(fn) {
         Cordova.exec(fn, null, "TCPlugin", "connectionStatus", []);
     }
-	
+
 	    TwilioPlugin.Connection.prototype.parameters = function(fn) {
         Cordova.exec(fn, null, "TCPlugin", "connectionParameters", []);
     }
 
     TwilioPlugin.install = function() {
-        if (!window.Twilio) window.Twilio = {};
-        if (!window.Twilio.Device) window.Twilio.Device = new TwilioPlugin.Device();
-        if (!window.Twilio.Connection) window.Twilio.Connection = new TwilioPlugin.Connection();
+        if (!window.TwilioClient) window.TwilioClient = {};
+        if (!window.TwilioClient.Device) window.TwilioClient.Device = new TwilioPlugin.Device();
+        if (!window.TwilioClient.Connection) window.TwilioClient.Connection = new TwilioPlugin.Connection();
     }
  TwilioPlugin.install();
 
